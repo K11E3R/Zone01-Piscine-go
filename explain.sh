@@ -1,6 +1,1 @@
-echo "Annabel Church"
-echo "699607"
-echo "Blue Honda"
-echo "Aron Pilhofer"
-echo "Erika Owens"
-echo "Hellen Maher"
+echo -e "Church Annabel\n699607\nBlue Honda\nHellen Maher\nOwens Erica\nGermuska Joe"

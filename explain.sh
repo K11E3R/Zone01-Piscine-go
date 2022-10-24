@@ -1,1 +1,11 @@
-echo -e 'Church Annabel\n699607\nBlue Honda\nMaher Hellen\nOwens Erika\nGermuska Joe'
+echo "Church Annabel"
+
+echo "699607"
+
+echo "Blue Honda"
+
+echo "Maher Hellen"
+
+echo "Owens Erika"
+
+echo "Germuska Joe"

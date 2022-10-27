@@ -8,7 +8,7 @@ func BasicAtoi2(s string) int {
 		if(!('0'<=s[i]  && s[i] <= '9')){
 			return 0
 		}
-		res += s[i]*(pow--)*10
+		res += (s[i]*((pow--)*10))
 	}
 	return res;	
 }

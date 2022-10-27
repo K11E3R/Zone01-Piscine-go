@@ -1,8 +1,5 @@
 package piscine
 
-import (
-	"strconv"
-)
 
 func BasicAtoi2(s string) int {
 	res := 1

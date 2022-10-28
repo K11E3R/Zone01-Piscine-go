@@ -1,9 +1,11 @@
 package piscine
 
 func Atoi(s string) int {
-	for i := 1; i < len(s); i++ {
-		if '0' > s[i] || s[i] > '9' {
-			return 0
+	if s {
+		for i := 1; i < len(s); i++ {
+			if '0' > s[i] || s[i] > '9' {
+				return 0
+			}
 		}
 	}
 	r := 0

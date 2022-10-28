@@ -1,7 +1,7 @@
 package piscine
 
 func Atoi(s string) int {
-	if s {
+	if len(s)>0 {
 		for i := 1; i < len(s); i++ {
 			if '0' > s[i] || s[i] > '9' {
 				return 0

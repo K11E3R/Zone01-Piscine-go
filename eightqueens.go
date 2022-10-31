@@ -1,41 +1,57 @@
 package piscine
 
-import (
-	"github.com/01-edu/z01"
-)
+import "github.com/01-edu/z01"
 
-const N = 8
+var ans [8]rune
+var ban [9]bool
+var ans2 [9]int
 
-var position = [N]int{}
-
-func isSafe(queen_number, row_position int) bool {
-	for i := 0; i < queen_number; i++ {
-		other_row_pos := position[i]
-
-		if other_row_pos == row_position || other_row_pos == row_position-(queen_number-i) || other_row_pos == row_position+(queen_number-i) {
-			return false
+func EightQueens() {
+	ok := true
+	cnt := 0
+	for i := 1; i <= 8; i++ {
+		if ban[i] == false {
+			ok = false
+			//	break
+		} else {
+			cnt++
 		}
 	}
-	return true
-}
 
-func solve(k int) {
-	if k == N {
-		for i := 0; i < N; i++ {
-			stre := rune(position[i] + 1)
-			z01.PrintRune(stre)
+	if ok == true {
+		for _, c := range ans {
+			z01.PrintRune(c)
 		}
 		z01.PrintRune('\n')
-	} else {
-		for i := 0; i < N; i++ {
-			if isSafe(k, i) {
-				position[k] = i
-				solve(k + 1)
+
+		return
+	}
+	for i := '1'; i <= '8'; i++ {
+		cur := 0
+		for j := '1'; j <= i; j++ {
+			cur++
+		}
+		if ban[cur] == false {
+			put := true
+			for j := 1; j <= cnt; j++ {
+				if cur == ans2[j]-(cnt+1-j) || cur == ans2[j]+(cnt+1-j) {
+					put = false
+					break
+				} /*
+					fmt.Print(ans2[j])
+					fmt.Print(" ")*/
+
+			}
+			//	fmt.Println("    <<< THIS SHIT")
+			if put == true {
+				ban[cur] = true
+				ans[cnt] = i
+				ans2[cnt+1] = cur
+				EightQueens()
+				ban[cur] = false
+				//ans2[cnt+1] = 0
+
 			}
 		}
 	}
-}
-
-func EightQueens() {
-	solve(0)
 }

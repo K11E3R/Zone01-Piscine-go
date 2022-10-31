@@ -22,7 +22,7 @@ func isSafe(queen_number, row_position int) bool {
 func solve(k int) {
 	if k == N {
 		for i := 0; i < N; i++ {
-			stre := []rune(position[i] + 1)
+			stre := []rune(string(position[i] + 1))
 			z01.PrintRune(stre[0])
 		}
 		z01.PrintRune('\n')

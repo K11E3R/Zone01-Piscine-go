@@ -2,9 +2,11 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-var ans [8]rune
-var ban [9]bool
-var ans2 [9]int
+var (
+	ans  [8]rune
+	ban  [9]bool
+	ans2 [9]int
+)
 
 func EightQueens() {
 	ok := true
@@ -17,13 +19,11 @@ func EightQueens() {
 			cnt++
 		}
 	}
-
 	if ok == true {
 		for _, c := range ans {
 			z01.PrintRune(c)
 		}
 		z01.PrintRune('\n')
-
 		return
 	}
 	for i := '1'; i <= '8'; i++ {
@@ -40,7 +40,6 @@ func EightQueens() {
 				} /*
 					fmt.Print(ans2[j])
 					fmt.Print(" ")*/
-
 			}
 			//	fmt.Println("    <<< THIS SHIT")
 			if put == true {
@@ -49,8 +48,7 @@ func EightQueens() {
 				ans2[cnt+1] = cur
 				EightQueens()
 				ban[cur] = false
-				//ans2[cnt+1] = 0
-
+				// ans2[cnt+1] = 0
 			}
 		}
 	}

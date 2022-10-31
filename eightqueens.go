@@ -1,6 +1,10 @@
 package piscine
 
-import "fmt"
+import (
+	"strconv"
+
+	"github.com/01-edu/z01"
+)
 
 const N = 8
 
@@ -20,9 +24,11 @@ func isSafe(queen_number, row_position int) bool {
 func solve(k int) {
 	if k == N {
 		for i := 0; i < N; i++ {
-			fmt.Print(position[i] + 1)
+			str := strconv.Itoa(position[i] + 1)
+			stre := []rune(str)
+			z01.PrintRune(stre[0])
 		}
-		fmt.Print("\n")
+		z01.PrintRune('\n')
 	} else {
 		for i := 0; i < N; i++ {
 			if isSafe(k, i) {

@@ -1,25 +1,44 @@
 package piscine
 
 func TrimAtoi(s string) int {
-	var neg bool = false
-	var empty bool = true
-	var res int = 0
-	for _, v := range s {
-		if empty && !neg && v == '-' {
-			neg = true
-		} else if IsRuneDigit(v) {
-			res *= 10
-			res += int(v - 48)
-			empty = false
+	var array []int
+	result := 0
+	minusIndex := -1
+	firstDigitIndex := 0
+	index := 0
+	arrayCount := 0
+	for _, rune := range s {
+		if rune == '-' {
+			minusIndex = index
+		}
+		if isDigit(rune) {
+			if firstDigitIndex == 0 {
+				firstDigitIndex = index
+			}
+			array = append(array, int(rune-'0'))
+		}
+		index++
+	}
+
+	for count := range array {
+		arrayCount = count + 1
+	}
+
+	for i := 0; i < arrayCount; i++ {
+		result = result*10 + array[i]
+	}
+
+	if minusIndex < firstDigitIndex && minusIndex != -1 {
+		result = result * -1
+	}
+	return result
+}
+
+func isDigit(digit rune) bool {
+	for a := '0'; a <= '9'; a++ {
+		if digit == a {
+			return true
 		}
 	}
-	if empty {
-		return 0
-	} else {
-		if neg {
-			return -res
-		} else {
-			return res
-		}
-	}
+	return false
 }

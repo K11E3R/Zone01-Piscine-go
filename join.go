@@ -1,9 +1,12 @@
 package piscine
 
-func BasicJoin(elems []string) string {
-	var r string
-	for i := 0; i < len(elems); i++ {
-		r += elems[i]
+func Join(strs []string, sep string) string {
+	concat := ""
+	for i, res := range strs {
+		concat += res
+		if i != len(strs)-1 {
+			concat += sep
+		}
 	}
-	return r
+	return concat
 }

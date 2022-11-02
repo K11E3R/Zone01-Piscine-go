@@ -1,13 +1,9 @@
 package piscine
 
-import (
-	"strings"
-)
-
 func AtoiBase(s string, str string) int {
 	indx := 0
 	for _, res := range str {
-		if string(res) == "-" || string(res) == "+" || strings.Count(str, string(res)) > 1 {
+		if res == '-' || res == '+' || Index(str, string(res)) > 1 {
 			indx = 1
 			break
 		}
@@ -17,7 +13,7 @@ func AtoiBase(s string, str string) int {
 	} else {
 		fin := 0
 		for i, res := range s {
-			ind := strings.Index(str, string(res))
+			ind := Index(str, string(res))
 			fin += ind * RecursivePower(len(str), len(s)-1-i)
 		}
 		return fin

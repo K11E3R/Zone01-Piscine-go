@@ -1,46 +1,49 @@
 package piscine
 
 import (
-	"fmt"
-	"math"
-	"strings"
+	"github.com/01-edu/z01"
 )
 
-func Reverse(s string) string {
-	var reverse string
-	for i := len(s) - 1; i >= 0; i-- {
-		reverse += string(s[i])
+func PrintNbrBase(s int, t string) {
+	ans := ""
+	ln := 0
+	for _, c := range t {
+		if c == c {
+			ln++
+		}
 	}
-	return reverse
-}
+	mx_p := ln
+	if s < 0 {
+		ans = "-"
+		mx_p *= -1
+	}
+	if ln > 1 {
 
-func PrintNbrBase(nbr int, str string) {
-	indx := 0
-	for _, res := range str {
-		if string(res) == "-" || string(res) == "+" || strings.Count(str, string(res)) > 1 {
-			indx = 1
-			break
+		for s/mx_p >= ln {
+			mx_p *= ln
 		}
-	}
-	if indx == 1 || len(str) < 2 {
-		fmt.Print("NV")
-	} else if math.MaxInt32 < nbr || math.MinInt32 > nbr {
-		fmt.Print(int64(nbr))
-	} else {
-		if nbr < 0 {
-			fmt.Print("-")
-			nbr *= -1
+		for mx_p != 0 {
+			ans = ans + string(t[s/mx_p])
+			s = s - s/mx_p*mx_p
+			mx_p /= ln
 		}
-		i := 0
-		nan := ""
-		for nbr >= len(str) {
-			if nbr >= len(str) {
-				nan += string(str[nbr%len(str)])
-				nbr = nbr / len(str)
-				i++
+		x := map[rune]bool{}
+		for _, c := range t {
+			if c == '+' || c == '-' {
+				ans = "NV"
+				break
+			}
+			if x[c] == false {
+				x[c] = true
+			} else {
+				ans = "NV"
+				break
 			}
 		}
-		nan += string(str[nbr])
-		fmt.Print(Reverse(nan))
+	} else {
+		ans = "NV"
+	}
+	for _, c := range ans {
+		z01.PrintRune(c)
 	}
 }

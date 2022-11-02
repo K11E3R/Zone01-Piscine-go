@@ -4,53 +4,36 @@ import (
 	"os"
 
 	"github.com/01-edu/z01"
+	// "fmt"
 )
 
 func main() {
-	arguments := os.Args
-	namePro := arguments[0]
-	count := 0
+	args := os.Args[1:]
 	str := ""
-	var vowels []rune
-	var ind []int
-	for range arguments {
-		count++
+	for _, val := range args {
+		str = str + " " + val
 	}
-	for i := 0; i < count-1; i++ {
-		if arguments[i] != namePro {
-			str = str + arguments[i] + " "
+	indexes := []int{}
+	length := 0
+	hasNext := false
+	for ind, val := range str {
+		if val == 'a' || val == 'e' || val == 'i' || val == 'o' || val == 'u' || val == 'A' || val == 'E' || val == 'I' || val == 'O' || val == 'U' {
+			indexes = append(indexes, ind-1)
+			length++
 		}
+		hasNext = true
 	}
-	str = str + arguments[count-1]
-	for i, a := range str {
-		if isVowel(a) {
-			vowels = append(vowels, a)
-			ind = append(ind, i)
-
-		}
+	if !hasNext {
+		z01.PrintRune('\n')
+		return
 	}
-	n := 0
-	runes := []rune(str)
-	for range runes {
-		n++
+	str = str[1:]
+	strRune := []rune(str)
+	for i := 0; i < length/2 && length != 0; i++ {
+		strRune[indexes[i]], strRune[indexes[length-i-1]] = strRune[indexes[length-i-1]], strRune[indexes[i]]
 	}
-	m := 0
-	for range vowels {
-		m++
-	}
-	for i := 0; i < n; i++ {
-		for j := range ind {
-			if i == ind[j] {
-				runes[i] = vowels[m-j-1]
-			}
-		}
-	}
-	for i := range runes {
-		z01.PrintRune(runes[i])
+	for _, val := range strRune {
+		z01.PrintRune(val)
 	}
 	z01.PrintRune('\n')
-}
-
-func isVowel(a rune) bool {
-	return (a == 'a' || a == 'e' || a == 'u' || a == 'o' || a == 'i' || a == 'A' || a == 'E' || a == 'U' || a == 'O' || a == 'I')
 }

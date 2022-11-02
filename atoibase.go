@@ -1,21 +1,34 @@
 package piscine
 
-func AtoiBase(s string, str string) int {
-	indx := 0
-	for _, res := range str {
-		if res == '-' || res == '+' || count(str, string(res)) > 1 {
-			indx = 1
-			break
-		}
-	}
-	if indx == 1 || len(str) < 2 {
+func AtoiBase(s string, base string) int {
+	n := StrLen(base)
+	count := StrLen(s)
+	if n < 1 {
 		return 0
-	} else {
-		fin := 0
-		for i, res := range s {
-			ind := Index(str, string(res))
-			fin += ind * RecursivePower(len(str), len(s)-1-i)
-		}
-		return fin
 	}
+	for i := 0; i < n; i++ {
+		if base[i] == '+' || base[i] == '-' {
+			return 0
+		}
+		for j := i + 1; j < n; j++ {
+			if base[i] == base[j] {
+				return 0
+			}
+		}
+	}
+	res := 0
+	bn := 1
+	numeric := 0
+	for i := count - 1; i >= 0; i-- {
+		for j := 0; j < n; j++ {
+			if base[j] == s[i] {
+				numeric = j
+			}
+		}
+		res = res + bn*numeric
+		bn = bn * n
+
+	}
+
+	return res
 }

@@ -3,7 +3,7 @@ package piscine
 func AtoiBase(s string, str string) int {
 	indx := 0
 	for _, res := range str {
-		if res == '-' || res == '+' || Index(str, string(res)) > 1 {
+		if res == '-' || res == '+' || count(str, string(res)) > 1 {
 			indx = 1
 			break
 		}

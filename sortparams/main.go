@@ -17,6 +17,7 @@ func SortWordArr(a []string) {
 		}
 	}
 }
+
 func main() {
 	argument := os.Args
 	SortWordArr(argument[1:])

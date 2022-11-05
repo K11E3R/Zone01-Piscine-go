@@ -141,28 +141,17 @@ func AfficherSudoku(arr [][]int) {
 
 func main() {
 	arr := os.Args[1:]
+
 	if SudokuErreur(arr) {
-		fmt.Println("error")
-		return
-	}
-	board := ToInt(arr)
-	for i := 0; i < len(board); i++ {
-		for j := 0; j < len(board[0]); j++ {
-			fmt.Print(board[i][j])
-		}
-		fmt.Println()
-	}
-	/*
-		if SudokuErreur(arr) {
-			fmt.Println("Error")
+		fmt.Println("Error")
+	} else {
+		sudoku := ToInt(arr)
+		if Solver(&sudoku, len(sudoku)) {
+			AfficherSudoku(sudoku)
 		} else {
-			sudoku := ToInt(arr)
-			if Solver(&sudoku, len(sudoku)) {
-				AfficherSudoku(sudoku)
-			} else {
-				fmt.Println("Error")
-			}
-		}*/
+			fmt.Println("Error")
+		}
+	}
 }
 
 //################################################

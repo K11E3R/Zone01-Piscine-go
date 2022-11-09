@@ -19,7 +19,6 @@ func main() {
 	}
 
 	data, err := ioutil.ReadFile(fileName)
-
 	if err != nil {
 		fmt.Println(err.Error())
 		return

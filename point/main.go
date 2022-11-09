@@ -16,5 +16,5 @@ func setPoint(ptr point) point {
 func main() {
 	points := point{}
 	points = setPoint(points)
-	z01.PrintRune([]rune("x = %d, y = %d\n", points.x, points.y))
+	z01.PrintRune([]rune("x = " + points.x + "y = "+ points.y + "\n"))
 }

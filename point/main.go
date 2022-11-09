@@ -1,6 +1,6 @@
 package main
 
-import "github.com/01-edu/z01.PrintRune"
+import "github.com/01-edu/z01"
 
 type point struct {
 	x int
@@ -16,5 +16,5 @@ func setPoint(ptr point) point {
 func main() {
 	points := point{}
 	points = setPoint(points)
-	PrintRune([]rune("x = %d, y = %d\n", points.x, points.y))
+	z01.PrintRune([]rune("x = %d, y = %d\n", points.x, points.y))
 }

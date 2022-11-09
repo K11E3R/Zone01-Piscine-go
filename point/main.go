@@ -7,7 +7,7 @@ func itoa(a int) string {
 	if a < 0 {
 		a = -a
 	}
-	for a/10 != 0 && a % 10 !=0 {
+	for a/10 != 0 && a%10 != 0 {
 		count := '0'
 		for i := a % 10; i > 0; i-- {
 			count++

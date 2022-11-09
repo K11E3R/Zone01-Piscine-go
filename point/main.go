@@ -4,12 +4,17 @@ import "github.com/01-edu/z01"
 
 func itoa(a int) string {
 	var result string
+	if a < 0 {
+		a = -a
+		result = "-"
+	}
 	for a/10 != 0 {
 		count := '0'
 		for i := a % 10; i > 0; i-- {
 			count++
 		}
 		result = string(count) + result
+		a = a / 10
 	}
 	return result
 }

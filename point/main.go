@@ -7,7 +7,7 @@ type point struct {
 	y int
 }
 
-func setPoint(ptr point)point {
+func setPoint(ptr point) point {
 	ptr.x = 42
 	ptr.y = 21
 	return ptr

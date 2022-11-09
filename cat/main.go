@@ -18,5 +18,8 @@ func main() {
 			fmt.Println(string(data))
 			fmt.Print()
 		}
+		return
 	}
+	a=hello
+	z01.PrintRune()
 }

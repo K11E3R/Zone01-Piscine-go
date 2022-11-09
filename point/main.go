@@ -18,4 +18,3 @@ func main() {
 	points = setPoint(points)
 	PrintRune([]rune("x = %d, y = %d\n", points.x, points.y))
 }
- 

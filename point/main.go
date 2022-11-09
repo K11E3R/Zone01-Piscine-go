@@ -32,7 +32,7 @@ func setPoint(ptr point) point {
 func main() {
 	points := point{}
 	points = setPoint(points)
-	str := "x = " + itoa(points.x) + "y = " + itoa(points.y) + "\n"
+	str := "x = " + itoa(points.x) + ", y = " + itoa(points.y) + "\n"
 	for _, elem := range str {
 		z01.PrintRune(elem)
 	}

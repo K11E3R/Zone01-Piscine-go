@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/01-edu/z01"
+	"github.com/01-edu/z01.PrintRune"
 )
 
 type point struct {
@@ -9,15 +9,17 @@ type point struct {
 	y int
 }
 
-func setPoint(ptr *point) {
+func setPoint(ptr point)point {
 	ptr.x = 42
 	ptr.y = 21
+	return ptr
 }
 
 func main() {
-	points := &point{}
+	points := point{}
 
-	setPoint(points)
+	points = setPoint(points)
 
-	z01.PrintRune(rune(points.x), rune(points.y))
+	PrintRune([]rune("x = %d, y = %d\n", points.x, points.y))
 }
+ 

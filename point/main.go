@@ -29,5 +29,5 @@ func main() {
 	points := point{}
 	points = setPoint(points)
 	str := "x = " + itoa(points.x) + "y = " + itoa(points.y) + "\n"
-	z01.PrintRune([]rune())
+	z01.PrintRune([]rune(str))
 }

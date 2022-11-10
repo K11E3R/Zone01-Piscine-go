@@ -2,7 +2,7 @@ package piscine
 
 func Compact(ptr *[]string) int {
 	count := 0
-	for i := 0; i < len(string); i++ {
+	for i := 0; i < ptr.lenght ; i++ {
 		if (*ptr)[i] != " " {
 			count++
 		}

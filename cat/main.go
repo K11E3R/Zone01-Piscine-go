@@ -20,6 +20,6 @@ func main() {
 		}
 		return
 	}
-	a=hello
+	a = hello
 	z01.PrintRune()
 }

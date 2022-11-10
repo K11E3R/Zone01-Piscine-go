@@ -24,7 +24,7 @@ func OpenDoor(ptrDoor *Door) {
 }
 
 func CloseDoor(ptrDoor *Door) {
-	PrintStr("Door closing...")
+	PrintStr("Door Closing...")
 	z01.PrintRune('\n')
 	ptrDoor.state = CLOSE
 }
@@ -36,7 +36,7 @@ func IsDoorOpen(ptrDoor Door) bool {
 }
 
 func IsDoorClose(ptrDoor Door) bool {
-	PrintStr("is the Door Closed ?")
+	PrintStr("is the Door closed ?")
 	z01.PrintRune('\n')
 	return ptrDoor.state
 }

@@ -2,18 +2,21 @@ package main
 
 import "fmt"
 
-type Door struct{
+type Door struct {
 	state bool
 }
-const OPEN = false
-const CLOSE =true
 
-func OpenDoor(ptrDoor *Door){
+const (
+	OPEN  = false
+	CLOSE = true
+)
+
+func OpenDoor(ptrDoor *Door) {
 	fmt.Println("Door Opening...")
 	ptrDoor.state = OPEN
 }
 
-func CloseDoor(ptrDoor *Door){
+func CloseDoor(ptrDoor *Door) {
 	fmt.Println("Door closing...")
 	ptrDoor.state = CLOSE
 }

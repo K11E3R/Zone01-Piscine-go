@@ -1,31 +1,34 @@
 package piscine
 
 func SortWordArr(array []string) {
-	ech := ""
-	for i := 0; i < len(array); i++ {
-		for j := i + 1; j < len(array); j++ {
-			a := []byte(array[j])
-			b := []byte(array[i])
-			if comparearrayascii(a, b) {
-				ech = array[i]
-				array[i] = array[j]
-				array[j] = ech
-			}
-		}
+	quickSrot2(array, 0, len(array)-1)
+}
+
+func quickSrot2(table []string, beg int, end int) {
+	if beg < end {
+		lockPivo := mudaVariavel2(table, beg, end)
+		quickSrot2(table, beg, lockPivo-1)
+		quickSrot2(table, lockPivo+1, end)
+
 	}
 }
 
-func comparearrayascii(a, b []byte) bool {
-	n := 0
-	if len(a) <= len(b) {
-		n = len(a)
-	} else {
-		n = len(b)
-	}
-	for i := 0; i < n; i++ {
-		if b[i] < a[i] {
-			return false
+func mudaVariavel2(table []string, beg int, end int) int {
+	pivo := table[end]
+	i := beg - 1
+
+	for j := beg; j < end; j++ {
+		if table[j] <= pivo {
+			i++
+			aux := table[j]
+			table[j] = table[i]
+			table[i] = aux
 		}
 	}
-	return true
+
+	aux := table[end]
+	table[end] = table[i+1]
+	table[i+1] = aux
+
+	return i + 1
 }

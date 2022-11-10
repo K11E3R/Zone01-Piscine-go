@@ -36,7 +36,7 @@ func IsDoorOpen(ptrDoor Door) bool {
 }
 
 func IsDoorClose(ptrDoor Door) bool {
-	PrintStr("is the Door closed ?")
+	PrintStr("is the Door Closed ?")
 	z01.PrintRune('\n')
 	return ptrDoor.state
 }

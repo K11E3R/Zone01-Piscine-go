@@ -1,6 +1,6 @@
 package piscine
 
-func compact(slice *[]string) int {
+func Compact(slice *[]string) int {
 	count := 0
 	var compacted []string
 	for _, v := range *slice {

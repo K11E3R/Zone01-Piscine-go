@@ -1,4 +1,4 @@
-package main
+package piscine
 
 func Max(a []int) int {
 	maxx := a[0]

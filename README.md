@@ -63,9 +63,9 @@ Feel free to collaborate or make any changes you deem necessary. Let's learn and
 ## Contact 🌐
 
 🌟 Connect with me:
-- LinkedIn: [Yassine Naanani](https://www.linkedin.com/in/yassine-naanani-5332a7a0/)
-- Email: prs.online.00@gmail.com
 
+- Author: Yassine Naanani [@K11E3R](https://github.com/k11e3r)
+- Email: prs.online.00@gmail.com
 ---
 
 
